@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TaxInvoice xmlns="urn:kr:or:kec:standard:Tax:ReusableAggregateBusinessInformationEntitySchemaModule:1:0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:kr:or:kec:standard:Tax:ReusableAggregateBusinessInformationEntitySchemaModule:1:0 http://www.kec.or.kr/standard/Tax/TaxInvoiceSchemaModule_1.0.xsd">
+  <ExchangedDocument>
+    <IssueDateTime>20251223184914</IssueDateTime>
+  </ExchangedDocument>
+  <TaxInvoiceDocument>
+    <IssueID>202512221025122377781439</IssueID>
+    <TypeCode>0201</TypeCode>
+    <DescriptionText>당초 승인번호 (20251222-10251223-77781011)</DescriptionText>
+    <IssueDateTime>20251222</IssueDateTime>
+    <AmendmentStatusCode>01</AmendmentStatusCode>
+    <PurposeCode>02</PurposeCode>
+    <OriginalIssueID>202512221025122377781011</OriginalIssueID>
+  </TaxInvoiceDocument>
+  <TaxInvoiceTradeSettlement>
+    <InvoicerParty>
+      <ID>5190401501</ID>
+      <TypeCode>제조업</TypeCode>
+      <NameText>아무고나제작소</NameText>
+      <ClassificationCode>전시용 모형 제조업</ClassificationCode>
+      <SpecifiedOrganization>
+        <TaxRegistrationID>0</TaxRegistrationID>
+      </SpecifiedOrganization>
+      <SpecifiedPerson>
+        <NameText>이인규</NameText>
+      </SpecifiedPerson>
+      <DefinedContact>
+        <URICommunication>2020amugona@gmail.com</URICommunication>
+      </DefinedContact>
+      <SpecifiedAddress>
+        <LineOneText>경기도 용인시 처인구 명지로116번길 9-48, 303호(남동, 용인청년창업지원주택)</LineOneText>
+      </SpecifiedAddress>
+    </InvoicerParty>
+    <InvoiceeParty>
+      <ID>8628601075</ID>
+      <TypeCode>제조업</TypeCode>
+      <NameText>주식회사 메타포어</NameText>
+      <ClassificationCode>필터 및 멤브레인 산업재 제품</ClassificationCode>
+      <SpecifiedOrganization>
+        <TaxRegistrationID>0</TaxRegistrationID>
+        <BusinessTypeCode>01</BusinessTypeCode>
+      </SpecifiedOrganization>
+      <SpecifiedPerson>
+        <NameText>고혁</NameText>
+      </SpecifiedPerson>
+      <PrimaryDefinedContact>
+        <URICommunication>jh.lee@metapore.com</URICommunication>
+      </PrimaryDefinedContact>
+      <SecondaryDefinedContact>
+        <URICommunication>jyl9965@metapore.com</URICommunication>
+      </SecondaryDefinedContact>
+      <SpecifiedAddress>
+        <LineOneText>경기도 수원시 영통구 창룡대로256번길 77, 메타포어 202호</LineOneText>
+      </SpecifiedAddress>
+    </InvoiceeParty>
+    <SpecifiedMonetarySummation>
+      <ChargeTotalAmount>3926043</ChargeTotalAmount>
+      <TaxTotalAmount>392604</TaxTotalAmount>
+      <GrandTotalAmount>4318647</GrandTotalAmount>
+    </SpecifiedMonetarySummation>
+  </TaxInvoiceTradeSettlement>
+  <TaxInvoiceTradeLineItem>
+    <SequenceNumeric>1</SequenceNumeric>
+    <InvoiceAmount>1550000</InvoiceAmount>
+    <ChargeableUnitQuantity>1</ChargeableUnitQuantity>
+    <NameText>wafer PC Clamp top</NameText>
+    <PurchaseExpiryDateTime>20251222</PurchaseExpiryDateTime>
+    <TotalTax>
+      <CalculatedAmount>155000</CalculatedAmount>
+    </TotalTax>
+    <UnitPrice>
+      <UnitAmount>1550000</UnitAmount>
+    </UnitPrice>
+  </TaxInvoiceTradeLineItem>
+  <TaxInvoiceTradeLineItem>
+    <SequenceNumeric>2</SequenceNumeric>
+    <InvoiceAmount>1550000</InvoiceAmount>
+    <ChargeableUnitQuantity>1</ChargeableUnitQuantity>
+    <NameText>wafer PC Clamp bottom</NameText>
+    <PurchaseExpiryDateTime>20251222</PurchaseExpiryDateTime>
+    <TotalTax>
+      <CalculatedAmount>155000</CalculatedAmount>
+    </TotalTax>
+    <UnitPrice>
+      <UnitAmount>1550000</UnitAmount>
+    </UnitPrice>
+  </TaxInvoiceTradeLineItem>
+  <TaxInvoiceTradeLineItem>
+    <SequenceNumeric>3</SequenceNumeric>
+    <InvoiceAmount>700000</InvoiceAmount>
+    <ChargeableUnitQuantity>7</ChargeableUnitQuantity>
+    <NameText>Pressure indicator parts v1.3</NameText>
+    <PurchaseExpiryDateTime>20251222</PurchaseExpiryDateTime>
+    <TotalTax>
+      <CalculatedAmount>70000</CalculatedAmount>
+    </TotalTax>
+    <UnitPrice>
+      <UnitAmount>100000</UnitAmount>
+    </UnitPrice>
+  </TaxInvoiceTradeLineItem>
+  <TaxInvoiceTradeLineItem>
+    <SequenceNumeric>4</SequenceNumeric>
+    <InvoiceAmount>126043</InvoiceAmount>
+    <ChargeableUnitQuantity>1</ChargeableUnitQuantity>
+    <NameText>Flow stopper parts</NameText>
+    <PurchaseExpiryDateTime>20251222</PurchaseExpiryDateTime>
+    <TotalTax>
+      <CalculatedAmount>12604</CalculatedAmount>
+    </TotalTax>
+    <UnitPrice>
+      <UnitAmount>126043</UnitAmount>
+    </UnitPrice>
+  </TaxInvoiceTradeLineItem>
+</TaxInvoice>
