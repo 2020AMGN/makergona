@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TaxInvoice xmlns="urn:kr:or:kec:standard:Tax:ReusableAggregateBusinessInformationEntitySchemaModule:1:0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:kr:or:kec:standard:Tax:ReusableAggregateBusinessInformationEntitySchemaModule:1:0 http://www.kec.or.kr/standard/Tax/TaxInvoiceSchemaModule_1.0.xsd">
+  <ExchangedDocument>
+    <IssueDateTime>20250620170200</IssueDateTime>
+  </ExchangedDocument>
+  <TaxInvoiceDocument>
+    <IssueID>202506201025062076694899</IssueID>
+    <TypeCode>0101</TypeCode>
+    <IssueDateTime>20250620</IssueDateTime>
+    <PurposeCode>02</PurposeCode>
+  </TaxInvoiceDocument>
+  <TaxInvoiceTradeSettlement>
+    <InvoicerParty>
+      <ID>6338103295</ID>
+      <TypeCode>전문, 과학 및 기술서비스업</TypeCode>
+      <NameText>주식회사 상상을현실로</NameText>
+      <ClassificationCode>엔지니어링 제도업</ClassificationCode>
+      <SpecifiedOrganization>
+        <TaxRegistrationID>0</TaxRegistrationID>
+      </SpecifiedOrganization>
+      <SpecifiedPerson>
+        <NameText>이인규</NameText>
+      </SpecifiedPerson>
+      <DefinedContact>
+        <URICommunication>2020amugona@gmail.com</URICommunication>
+      </DefinedContact>
+      <SpecifiedAddress>
+        <LineOneText>경기도 용인시 기흥구 강남서로 9, 7층 703-63에이호(구갈동)</LineOneText>
+      </SpecifiedAddress>
+    </InvoicerParty>
+    <InvoiceeParty>
+      <ID>1408138652</ID>
+      <TypeCode>제조업</TypeCode>
+      <NameText>주식회사콘스탄텍</NameText>
+      <ClassificationCode>LED디스플레이</ClassificationCode>
+      <SpecifiedOrganization>
+        <TaxRegistrationID>0</TaxRegistrationID>
+        <BusinessTypeCode>01</BusinessTypeCode>
+      </SpecifiedOrganization>
+      <SpecifiedPerson>
+        <NameText>최운용</NameText>
+      </SpecifiedPerson>
+      <PrimaryDefinedContact>
+        <URICommunication>constantec@hometax.go.kr</URICommunication>
+      </PrimaryDefinedContact>
+      <SecondaryDefinedContact>
+        <URICommunication>tech1@constantec.com</URICommunication>
+      </SecondaryDefinedContact>
+      <SpecifiedAddress>
+        <LineOneText>경기도 안산시 단원구 산단로 325, 6층 에프-645호</LineOneText>
+      </SpecifiedAddress>
+    </InvoiceeParty>
+    <SpecifiedPaymentMeans>
+      <TypeCode>10</TypeCode>
+      <PaidAmount>1100000</PaidAmount>
+    </SpecifiedPaymentMeans>
+    <SpecifiedMonetarySummation>
+      <ChargeTotalAmount>1000000</ChargeTotalAmount>
+      <TaxTotalAmount>100000</TaxTotalAmount>
+      <GrandTotalAmount>1100000</GrandTotalAmount>
+    </SpecifiedMonetarySummation>
+  </TaxInvoiceTradeSettlement>
+  <TaxInvoiceTradeLineItem>
+    <SequenceNumeric>1</SequenceNumeric>
+    <InvoiceAmount>850000</InvoiceAmount>
+    <ChargeableUnitQuantity>1</ChargeableUnitQuantity>
+    <NameText>ESP32 AP콘트롤러 - 회로설계, 아트웍(선금50%)</NameText>
+    <PurchaseExpiryDateTime>20250620</PurchaseExpiryDateTime>
+    <TotalTax>
+      <CalculatedAmount>85000</CalculatedAmount>
+    </TotalTax>
+    <UnitPrice>
+      <UnitAmount>850000</UnitAmount>
+    </UnitPrice>
+  </TaxInvoiceTradeLineItem>
+  <TaxInvoiceTradeLineItem>
+    <SequenceNumeric>2</SequenceNumeric>
+    <InvoiceAmount>150000</InvoiceAmount>
+    <ChargeableUnitQuantity>1</ChargeableUnitQuantity>
+    <NameText>ESP32 AP콘트롤러 - 샘플회로기판제작(선금50%)</NameText>
+    <PurchaseExpiryDateTime>20250620</PurchaseExpiryDateTime>
+    <TotalTax>
+      <CalculatedAmount>15000</CalculatedAmount>
+    </TotalTax>
+    <UnitPrice>
+      <UnitAmount>150000</UnitAmount>
+    </UnitPrice>
+  </TaxInvoiceTradeLineItem>
+</TaxInvoice>

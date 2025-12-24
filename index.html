@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>메이커고나</title>
+    <style>
+        :root {
+            color-scheme: light dark;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif;
+        }
+
+        .card {
+            padding: 28px 24px;
+            border: 1px solid rgba(127, 127, 127, .35);
+            border-radius: 16px;
+            width: min(560px, calc(100vw - 32px));
+            text-align: center;
+            backdrop-filter: blur(6px);
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            font-size: 44px;
+            letter-spacing: -0.02em;
+        }
+
+        p {
+            margin: 0;
+            opacity: .85;
+            font-size: 16px;
+        }
+
+        .btns {
+            margin-top: 18px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 10px 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(127, 127, 127, .35);
+            background: transparent;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            opacity: .85;
+        }
+
+        .toast {
+            margin-top: 14px;
+            font-size: 13px;
+            opacity: .75;
+            min-height: 1.2em;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="card">
+        <h1>메이커고나 👋</h1>
+        <p>환영합니다. 오늘도 뭐 하나 만들어볼까요?</p>
+
+        <div class="btns">
+            <button id="helloBtn" type="button">인사하기</button>
+            <button id="timeBtn" type="button">지금 시간</button>
+        </div>
+
+        <div id="toast" class="toast"></div>
+    </main>
+
+    <script>
+        const toast = document.getElementById("toast");
+
+        document.getElementById("helloBtn").addEventListener("click", () => {
+            toast.textContent = "메이커고나! 👋";
+        });
+
+        document.getElementById("timeBtn").addEventListener("click", () => {
+            const now = new Date();
+            toast.textContent = `지금: ${now.toLocaleString("ko-KR")}`;
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TaxInvoice xmlns="urn:kr:or:kec:standard:Tax:ReusableAggregateBusinessInformationEntitySchemaModule:1:0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:kr:or:kec:standard:Tax:ReusableAggregateBusinessInformationEntitySchemaModule:1:0 http://www.kec.or.kr/standard/Tax/TaxInvoiceSchemaModule_1.0.xsd">
+  <ExchangedDocument>
+    <IssueDateTime>20250428132201</IssueDateTime>
+  </ExchangedDocument>
+  <TaxInvoiceDocument>
+    <IssueID>202504251025042821896495</IssueID>
+    <TypeCode>0201</TypeCode>
+    <DescriptionText>당초 승인번호 (20250425-10250428-21894721)</DescriptionText>
+    <IssueDateTime>20250425</IssueDateTime>
+    <AmendmentStatusCode>01</AmendmentStatusCode>
+    <PurposeCode>02</PurposeCode>
+    <OriginalIssueID>202504251025042821894721</OriginalIssueID>
+  </TaxInvoiceDocument>
+  <TaxInvoiceTradeSettlement>
+    <InvoicerParty>
+      <ID>5190401501</ID>
+      <TypeCode>제조업</TypeCode>
+      <NameText>아무고나제작소</NameText>
+      <ClassificationCode>전시용 모형 제조업</ClassificationCode>
+      <SpecifiedOrganization>
+        <TaxRegistrationID>0</TaxRegistrationID>
+      </SpecifiedOrganization>
+      <SpecifiedPerson>
+        <NameText>이인규</NameText>
+      </SpecifiedPerson>
+      <DefinedContact>
+        <URICommunication>2020amugona@gmail.com</URICommunication>
+      </DefinedContact>
+      <SpecifiedAddress>
+        <LineOneText>경기도 수원시 영통구 덕영대로 1731, 216호(영통동, 경희대학교 애지원 내 창업보육센터 송관B동)</LineOneText>
+      </SpecifiedAddress>
+    </InvoicerParty>
+    <InvoiceeParty>
+      <ID>8628601075</ID>
+      <TypeCode>제조업</TypeCode>
+      <NameText>주식회사 메타포어</NameText>
+      <ClassificationCode>필터 및 멤브레인 산업재 제품</ClassificationCode>
+      <SpecifiedOrganization>
+        <TaxRegistrationID>0</TaxRegistrationID>
+        <BusinessTypeCode>01</BusinessTypeCode>
+      </SpecifiedOrganization>
+      <SpecifiedPerson>
+        <NameText>정영</NameText>
+      </SpecifiedPerson>
+      <PrimaryDefinedContact>
+        <URICommunication>jh.lee@metapore.com</URICommunication>
+      </PrimaryDefinedContact>
+      <SecondaryDefinedContact>
+        <URICommunication>bsseo7993@metapore.com</URICommunication>
+      </SecondaryDefinedContact>
+      <SpecifiedAddress>
+        <LineOneText>경기 수원시 영통구 창룡대로256번길 77, 메타포어 202호</LineOneText>
+      </SpecifiedAddress>
+    </InvoiceeParty>
+    <SpecifiedPaymentMeans>
+      <TypeCode>10</TypeCode>
+      <PaidAmount>-6490000</PaidAmount>
+    </SpecifiedPaymentMeans>
+    <SpecifiedMonetarySummation>
+      <ChargeTotalAmount>-5900000</ChargeTotalAmount>
+      <TaxTotalAmount>-590000</TaxTotalAmount>
+      <GrandTotalAmount>-6490000</GrandTotalAmount>
+    </SpecifiedMonetarySummation>
+  </TaxInvoiceTradeSettlement>
+  <TaxInvoiceTradeLineItem>
+    <SequenceNumeric>1</SequenceNumeric>
+    <InvoiceAmount>-2800000</InvoiceAmount>
+    <ChargeableUnitQuantity>-2</ChargeableUnitQuantity>
+    <NameText>공정용 Silicon Clamp</NameText>
+    <PurchaseExpiryDateTime>20250425</PurchaseExpiryDateTime>
+    <TotalTax>
+      <CalculatedAmount>-280000</CalculatedAmount>
+    </TotalTax>
+    <UnitPrice>
+      <UnitAmount>1400000</UnitAmount>
+    </UnitPrice>
+  </TaxInvoiceTradeLineItem>
+  <TaxInvoiceTradeLineItem>
+    <SequenceNumeric>2</SequenceNumeric>
+    <InvoiceAmount>-1550000</InvoiceAmount>
+    <ChargeableUnitQuantity>-1</ChargeableUnitQuantity>
+    <NameText>Wafer PC Clamp top</NameText>
+    <PurchaseExpiryDateTime>20250425</PurchaseExpiryDateTime>
+    <TotalTax>
+      <CalculatedAmount>-155000</CalculatedAmount>
+    </TotalTax>
+    <UnitPrice>
+      <UnitAmount>1550000</UnitAmount>
+    </UnitPrice>
+  </TaxInvoiceTradeLineItem>
+  <TaxInvoiceTradeLineItem>
+    <SequenceNumeric>3</SequenceNumeric>
+    <InvoiceAmount>-1550000</InvoiceAmount>
+    <ChargeableUnitQuantity>-1</ChargeableUnitQuantity>
+    <NameText>Wafer PC Clamp bottom</NameText>
+    <PurchaseExpiryDateTime>20250425</PurchaseExpiryDateTime>
+    <TotalTax>
+      <CalculatedAmount>-155000</CalculatedAmount>
+    </TotalTax>
+    <UnitPrice>
+      <UnitAmount>1550000</UnitAmount>
+    </UnitPrice>
+  </TaxInvoiceTradeLineItem>
+</TaxInvoice>

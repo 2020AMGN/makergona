@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TaxInvoice xmlns="urn:kr:or:kec:standard:Tax:ReusableAggregateBusinessInformationEntitySchemaModule:1:0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:kr:or:kec:standard:Tax:ReusableAggregateBusinessInformationEntitySchemaModule:1:0 http://www.kec.or.kr/standard/Tax/TaxInvoiceSchemaModule_1.0.xsd">
+  <ExchangedDocument>
+    <IssueDateTime>20251202201311</IssueDateTime>
+  </ExchangedDocument>
+  <TaxInvoiceDocument>
+    <IssueID>202512021025120257362283</IssueID>
+    <TypeCode>0201</TypeCode>
+    <DescriptionText>당초 승인번호 (20251202-10251202-57356694)</DescriptionText>
+    <IssueDateTime>20251202</IssueDateTime>
+    <AmendmentStatusCode>01</AmendmentStatusCode>
+    <PurposeCode>02</PurposeCode>
+    <OriginalIssueID>202512021025120257356694</OriginalIssueID>
+  </TaxInvoiceDocument>
+  <TaxInvoiceTradeSettlement>
+    <InvoicerParty>
+      <ID>5190401501</ID>
+      <TypeCode>정보통신업</TypeCode>
+      <NameText>아무고나제작소</NameText>
+      <ClassificationCode>응용 소프트웨어 개발 및 공급업</ClassificationCode>
+      <SpecifiedOrganization>
+        <TaxRegistrationID>0</TaxRegistrationID>
+      </SpecifiedOrganization>
+      <SpecifiedPerson>
+        <NameText>이인규</NameText>
+      </SpecifiedPerson>
+      <DefinedContact>
+        <URICommunication>2020amugona@gmail.com</URICommunication>
+      </DefinedContact>
+      <SpecifiedAddress>
+        <LineOneText>경기도 용인시 처인구 명지로116번길 9-48, 303호(남동, 용인청년창업지원주택)</LineOneText>
+      </SpecifiedAddress>
+    </InvoicerParty>
+    <InvoiceeParty>
+      <ID>6058802515</ID>
+      <TypeCode>도매 및 소매업</TypeCode>
+      <NameText>주식회사 아워플랫폼</NameText>
+      <ClassificationCode>전자상거래 소매 중개업</ClassificationCode>
+      <SpecifiedOrganization>
+        <TaxRegistrationID>0</TaxRegistrationID>
+        <BusinessTypeCode>01</BusinessTypeCode>
+      </SpecifiedOrganization>
+      <SpecifiedPerson>
+        <NameText>김영표</NameText>
+      </SpecifiedPerson>
+      <PrimaryDefinedContact>
+        <URICommunication>payment@ourplatform.co.kr</URICommunication>
+      </PrimaryDefinedContact>
+      <SecondaryDefinedContact/>
+      <SpecifiedAddress>
+        <LineOneText>충청남도 천안시 서북구 성정공원5로 35, 601호-39</LineOneText>
+      </SpecifiedAddress>
+    </InvoiceeParty>
+    <SpecifiedPaymentMeans>
+      <TypeCode>10</TypeCode>
+      <PaidAmount>21890000</PaidAmount>
+    </SpecifiedPaymentMeans>
+    <SpecifiedMonetarySummation>
+      <ChargeTotalAmount>19900000</ChargeTotalAmount>
+      <TaxTotalAmount>1990000</TaxTotalAmount>
+      <GrandTotalAmount>21890000</GrandTotalAmount>
+    </SpecifiedMonetarySummation>
+  </TaxInvoiceTradeSettlement>
+  <TaxInvoiceTradeLineItem>
+    <SequenceNumeric>1</SequenceNumeric>
+    <InvoiceAmount>19900000</InvoiceAmount>
+    <ChargeableUnitQuantity>1</ChargeableUnitQuantity>
+    <NameText>숲터 관리자 사이트 개발</NameText>
+    <PurchaseExpiryDateTime>20251202</PurchaseExpiryDateTime>
+    <TotalTax>
+      <CalculatedAmount>1990000</CalculatedAmount>
+    </TotalTax>
+    <UnitPrice>
+      <UnitAmount>19900000</UnitAmount>
+    </UnitPrice>
+  </TaxInvoiceTradeLineItem>
+</TaxInvoice>

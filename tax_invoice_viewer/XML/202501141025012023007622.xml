@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TaxInvoice xmlns="urn:kr:or:kec:standard:Tax:ReusableAggregateBusinessInformationEntitySchemaModule:1:0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:kr:or:kec:standard:Tax:ReusableAggregateBusinessInformationEntitySchemaModule:1:0 http://www.kec.or.kr/standard/Tax/TaxInvoiceSchemaModule_1.0.xsd">
+  <ExchangedDocument>
+    <IssueDateTime>20250120144518</IssueDateTime>
+  </ExchangedDocument>
+  <TaxInvoiceDocument>
+    <IssueID>202501141025012023007622</IssueID>
+    <TypeCode>0201</TypeCode>
+    <DescriptionText>당초 승인번호 (20250114-10250114-19791835)</DescriptionText>
+    <IssueDateTime>20250114</IssueDateTime>
+    <AmendmentStatusCode>01</AmendmentStatusCode>
+    <PurposeCode>02</PurposeCode>
+    <OriginalIssueID>202501141025011419791835</OriginalIssueID>
+  </TaxInvoiceDocument>
+  <TaxInvoiceTradeSettlement>
+    <InvoicerParty>
+      <ID>5190401501</ID>
+      <TypeCode>제조업</TypeCode>
+      <NameText>아무고나제작소</NameText>
+      <ClassificationCode>전시용 모형 제조업</ClassificationCode>
+      <SpecifiedOrganization>
+        <TaxRegistrationID>0</TaxRegistrationID>
+      </SpecifiedOrganization>
+      <SpecifiedPerson>
+        <NameText>이인규</NameText>
+      </SpecifiedPerson>
+      <DefinedContact>
+        <URICommunication>2020amugona@gmail.com</URICommunication>
+      </DefinedContact>
+      <SpecifiedAddress>
+        <LineOneText>경기도 수원시 영통구 덕영대로 1731, 216호(영통동, 경희대학교 애지원 내 창업보육센터 송관B동)</LineOneText>
+      </SpecifiedAddress>
+    </InvoicerParty>
+    <InvoiceeParty>
+      <ID>2068207306</ID>
+      <TypeCode>서비스</TypeCode>
+      <NameText>한양대학교 산학협력단</NameText>
+      <ClassificationCode>학술, 기술연구용역</ClassificationCode>
+      <SpecifiedOrganization>
+        <TaxRegistrationID>0</TaxRegistrationID>
+        <BusinessTypeCode>01</BusinessTypeCode>
+      </SpecifiedOrganization>
+      <SpecifiedPerson>
+        <NameText>변중무</NameText>
+      </SpecifiedPerson>
+      <PrimaryDefinedContact>
+        <URICommunication>hjh7142@hanyang.ac.kr</URICommunication>
+      </PrimaryDefinedContact>
+      <SecondaryDefinedContact/>
+      <SpecifiedAddress>
+        <LineOneText>서울특별시 성동구 왕십리로 222 ( 사근동, 한양대학교내 한양종합기술연구원 110호 )</LineOneText>
+      </SpecifiedAddress>
+    </InvoiceeParty>
+    <SpecifiedPaymentMeans>
+      <TypeCode>10</TypeCode>
+      <PaidAmount>-880000</PaidAmount>
+    </SpecifiedPaymentMeans>
+    <SpecifiedMonetarySummation>
+      <ChargeTotalAmount>-800000</ChargeTotalAmount>
+      <TaxTotalAmount>-80000</TaxTotalAmount>
+      <GrandTotalAmount>-880000</GrandTotalAmount>
+    </SpecifiedMonetarySummation>
+  </TaxInvoiceTradeSettlement>
+  <TaxInvoiceTradeLineItem>
+    <SequenceNumeric>1</SequenceNumeric>
+    <InvoiceAmount>-400000</InvoiceAmount>
+    <ChargeableUnitQuantity>-5</ChargeableUnitQuantity>
+    <NameText>3D 프린터 빌드플레이트</NameText>
+    <PurchaseExpiryDateTime>20250114</PurchaseExpiryDateTime>
+    <TotalTax>
+      <CalculatedAmount>-40000</CalculatedAmount>
+    </TotalTax>
+    <UnitPrice>
+      <UnitAmount>80000</UnitAmount>
+    </UnitPrice>
+  </TaxInvoiceTradeLineItem>
+  <TaxInvoiceTradeLineItem>
+    <SequenceNumeric>2</SequenceNumeric>
+    <InvoiceAmount>-400000</InvoiceAmount>
+    <ChargeableUnitQuantity>-20</ChargeableUnitQuantity>
+    <NameText>3D 프린터 필라멘트</NameText>
+    <PurchaseExpiryDateTime>20250114</PurchaseExpiryDateTime>
+    <TotalTax>
+      <CalculatedAmount>-40000</CalculatedAmount>
+    </TotalTax>
+    <UnitPrice>
+      <UnitAmount>20000</UnitAmount>
+    </UnitPrice>
+  </TaxInvoiceTradeLineItem>
+</TaxInvoice>

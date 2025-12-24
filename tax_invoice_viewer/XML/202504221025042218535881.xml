@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TaxInvoice xmlns="urn:kr:or:kec:standard:Tax:ReusableAggregateBusinessInformationEntitySchemaModule:1:0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:kr:or:kec:standard:Tax:ReusableAggregateBusinessInformationEntitySchemaModule:1:0 http://www.kec.or.kr/standard/Tax/TaxInvoiceSchemaModule_1.0.xsd">
+  <ExchangedDocument>
+    <IssueDateTime>20250422175913</IssueDateTime>
+  </ExchangedDocument>
+  <TaxInvoiceDocument>
+    <IssueID>202504221025042218535881</IssueID>
+    <TypeCode>0201</TypeCode>
+    <DescriptionText>당초 작성일자 (20250422), 당초 승인번호 (20250422-10250422-18440914)</DescriptionText>
+    <IssueDateTime>20250422</IssueDateTime>
+    <AmendmentStatusCode>04</AmendmentStatusCode>
+    <PurposeCode>02</PurposeCode>
+    <OriginalIssueID>202504221025042218440914</OriginalIssueID>
+  </TaxInvoiceDocument>
+  <TaxInvoiceTradeSettlement>
+    <InvoicerParty>
+      <ID>6338103295</ID>
+      <TypeCode>전문, 과학 및 기술서비스업</TypeCode>
+      <NameText>주식회사 상상을현실로</NameText>
+      <ClassificationCode>엔지니어링 제도업</ClassificationCode>
+      <SpecifiedOrganization>
+        <TaxRegistrationID>0</TaxRegistrationID>
+      </SpecifiedOrganization>
+      <SpecifiedPerson>
+        <NameText>이인규</NameText>
+      </SpecifiedPerson>
+      <DefinedContact>
+        <URICommunication>2020amugona@gmail.com</URICommunication>
+      </DefinedContact>
+      <SpecifiedAddress>
+        <LineOneText>경기도 용인시 기흥구 강남서로 9, 7층 703-63에이호(구갈동)</LineOneText>
+      </SpecifiedAddress>
+    </InvoicerParty>
+    <InvoiceeParty>
+      <ID>2068207306</ID>
+      <TypeCode>서비스</TypeCode>
+      <NameText>한양대학교 산학협력단</NameText>
+      <ClassificationCode>학술 기술연구용역</ClassificationCode>
+      <SpecifiedOrganization>
+        <TaxRegistrationID>0</TaxRegistrationID>
+        <BusinessTypeCode>01</BusinessTypeCode>
+      </SpecifiedOrganization>
+      <SpecifiedPerson>
+        <NameText>강영종</NameText>
+      </SpecifiedPerson>
+      <PrimaryDefinedContact>
+        <URICommunication>smj817@hanyang.ac.kr</URICommunication>
+      </PrimaryDefinedContact>
+      <SecondaryDefinedContact/>
+      <SpecifiedAddress>
+        <LineOneText>서울특별시 성동구 왕십리로 222</LineOneText>
+      </SpecifiedAddress>
+    </InvoiceeParty>
+    <SpecifiedMonetarySummation>
+      <ChargeTotalAmount>-363637</ChargeTotalAmount>
+      <TaxTotalAmount>-36363</TaxTotalAmount>
+      <GrandTotalAmount>-400000</GrandTotalAmount>
+    </SpecifiedMonetarySummation>
+  </TaxInvoiceTradeSettlement>
+  <TaxInvoiceTradeLineItem>
+    <SequenceNumeric>1</SequenceNumeric>
+    <InvoiceAmount>-363637</InvoiceAmount>
+    <ChargeableUnitQuantity>-1</ChargeableUnitQuantity>
+    <NameText>Cursor 연간 구독</NameText>
+    <PurchaseExpiryDateTime>20250422</PurchaseExpiryDateTime>
+    <TotalTax>
+      <CalculatedAmount>-36363</CalculatedAmount>
+    </TotalTax>
+    <UnitPrice>
+      <UnitAmount>363637</UnitAmount>
+    </UnitPrice>
+  </TaxInvoiceTradeLineItem>
+</TaxInvoice>

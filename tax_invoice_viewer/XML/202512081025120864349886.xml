@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TaxInvoice xmlns="urn:kr:or:kec:standard:Tax:ReusableAggregateBusinessInformationEntitySchemaModule:1:0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:kr:or:kec:standard:Tax:ReusableAggregateBusinessInformationEntitySchemaModule:1:0 http://www.kec.or.kr/standard/Tax/TaxInvoiceSchemaModule_1.0.xsd">
+  <ExchangedDocument>
+    <IssueDateTime>20251208151329</IssueDateTime>
+  </ExchangedDocument>
+  <TaxInvoiceDocument>
+    <IssueID>202512081025120864349886</IssueID>
+    <TypeCode>0101</TypeCode>
+    <IssueDateTime>20251208</IssueDateTime>
+    <PurposeCode>02</PurposeCode>
+  </TaxInvoiceDocument>
+  <TaxInvoiceTradeSettlement>
+    <InvoicerParty>
+      <ID>6338103295</ID>
+      <TypeCode>전문, 과학 및 기술서비스업</TypeCode>
+      <NameText>주식회사 상상을현실로</NameText>
+      <ClassificationCode>엔지니어링 제도업</ClassificationCode>
+      <SpecifiedOrganization>
+        <TaxRegistrationID>0</TaxRegistrationID>
+      </SpecifiedOrganization>
+      <SpecifiedPerson>
+        <NameText>이인규</NameText>
+      </SpecifiedPerson>
+      <DefinedContact>
+        <URICommunication>2020amugona@gmail.com</URICommunication>
+      </DefinedContact>
+      <SpecifiedAddress>
+        <LineOneText>경기도 수원시 영통구 덕영대로 1731, 비동 214,216호(영통동, 애지원 창업보육센터 송관)</LineOneText>
+      </SpecifiedAddress>
+    </InvoicerParty>
+    <InvoiceeParty>
+      <ID>5214300178</ID>
+      <TypeCode>서비스업</TypeCode>
+      <NameText>비비씨 AI 랩</NameText>
+      <ClassificationCode>소프트웨어개발업</ClassificationCode>
+      <SpecifiedOrganization>
+        <TaxRegistrationID>0</TaxRegistrationID>
+        <BusinessTypeCode>01</BusinessTypeCode>
+      </SpecifiedOrganization>
+      <SpecifiedPerson>
+        <NameText>김인수</NameText>
+      </SpecifiedPerson>
+      <PrimaryDefinedContact>
+        <URICommunication>bbcsoft2016@gmail.com</URICommunication>
+      </PrimaryDefinedContact>
+      <SecondaryDefinedContact/>
+      <SpecifiedAddress>
+        <LineOneText>강원특별자치도 영월군 영월읍 거운리 874-3 2동</LineOneText>
+      </SpecifiedAddress>
+    </InvoiceeParty>
+    <SpecifiedPaymentMeans>
+      <TypeCode>10</TypeCode>
+      <PaidAmount>400000</PaidAmount>
+    </SpecifiedPaymentMeans>
+    <SpecifiedMonetarySummation>
+      <ChargeTotalAmount>363637</ChargeTotalAmount>
+      <TaxTotalAmount>36363</TaxTotalAmount>
+      <GrandTotalAmount>400000</GrandTotalAmount>
+    </SpecifiedMonetarySummation>
+  </TaxInvoiceTradeSettlement>
+  <TaxInvoiceTradeLineItem>
+    <SequenceNumeric>1</SequenceNumeric>
+    <InvoiceAmount>363637</InvoiceAmount>
+    <ChargeableUnitQuantity>1</ChargeableUnitQuantity>
+    <NameText>강사 지원</NameText>
+    <PurchaseExpiryDateTime>20251208</PurchaseExpiryDateTime>
+    <TotalTax>
+      <CalculatedAmount>36363</CalculatedAmount>
+    </TotalTax>
+    <UnitPrice>
+      <UnitAmount>363637</UnitAmount>
+    </UnitPrice>
+  </TaxInvoiceTradeLineItem>
+</TaxInvoice>
