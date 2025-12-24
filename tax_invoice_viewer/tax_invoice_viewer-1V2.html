@@ -470,7 +470,7 @@
 
         async function searchByNumber() {
             const invoiceNumber = searchInput.value.trim();
-            
+
             if (!invoiceNumber) {
                 showMessage('세금계산서 번호를 입력해주세요.', 'error');
                 return;
@@ -483,23 +483,23 @@
 
             try {
                 showMessage('검색 중...', 'success');
-                
+
                 // XML 폴더에서 파일 찾기 시도
                 const xmlFileName = invoiceNumber + '.xml';
-                
+
                 // 로컬 파일 시스템에서 찾기 시도
                 try {
-                    const response = await fetch('./xml/' + xmlFileName);
-                    
+                    const response = await fetch('./XML/' + xmlFileName);
+
                     if (response.ok) {
                         const xmlText = await response.text();
                         const parser = new DOMParser();
                         const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
-                        
+
                         if (xmlDoc.getElementsByTagName('parsererror').length > 0) {
                             throw new Error('XML 파일 형식이 잘못되었습니다.');
                         }
-                        
+
                         renderInvoice(xmlDoc);
                         uploadArea.style.display = 'none';
                         invoiceArea.style.display = 'block';
