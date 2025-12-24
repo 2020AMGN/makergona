@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전자세금계산서-랜딩
+    </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Malgun Gothic', '맑은 고딕', Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            font-size: 11px;
+        }
+
+        .container {
+            margin: 0 auto;
+            padding: 0 20px;
+            max-width: 700px;
+        }
+
+        .upload-area {
+            background: white;
+            border: 2px dashed #2196F3;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .upload-area:hover {
+            background: #f0f7ff;
+            border-color: #1976D2;
+        }
+
+        .upload-area.dragover {
+            background: #e3f2fd;
+            border-color: #1565c0;
+        }
+
+        .upload-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .upload-text {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .upload-hint {
+            font-size: 13px;
+            color: #999;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .search-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .search-section h3 {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: #333;
+        }
+
+        .search-input-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .search-input-group input {
+            flex: 1;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .search-input-group input:focus {
+            outline: none;
+            border-color: #2196F3;
+            box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+        }
+
+        .search-btn {
+            background: #2196F3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .search-btn:hover {
+            background: #1976D2;
+        }
+
+        .search-btn:active {
+            background: #1565c0;
+        }
+
+        .message {
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .error {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .success {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .print-btn {
+            background: #2196F3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 20px 0;
+        }
+
+        .print-btn:hover {
+            background: #1976D2;
+        }
+
+        .invoice-paper {
+            background: white;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #999;
+        }
+
+        .approval-info {
+            text-align: right;
+            font-size: 10px;
+            margin-bottom: 10px;
+        }
+
+        .approval-info strong {
+            font-size: 12px;
+        }
+
+        /* 통합 party 테이블 */
+        .unified-party-table {
+            width: 100%;
+            border-collapse: collapse;
+            border-top: 1px solid #999;
+            border-left: 1px solid #999;
+            margin-bottom: 40px;
+            table-layout: fixed;
+        }
+
+        .unified-party-table td {
+            border-right: 1px solid #999;
+            border-bottom: 1px solid #999;
+            padding: 4px;
+            font-size: 10px;
+            word-break: break-word;
+        }
+
+        .party-indicator {
+            text-align: center;
+            font-weight: bold;
+            width: 40px;
+            padding: 5px 2px;
+            font-size: 10px;
+            line-height: 1.2;
+            vertical-align: middle;
+        }
+
+        .party-indicator.pink {
+            background: #f0d8e8;
+        }
+
+        .party-indicator.blue {
+            background: #d4e6f1;
+        }
+
+        .party-label {
+            background: #f5e6f0;
+            font-weight: bold;
+            padding: 6px;
+            font-size: 10px;
+            text-align: center;
+            min-width: 50px;
+        }
+
+        .party-label.blue {
+            background: #d4e6f1;
+        }
+
+        .party-value {
+            padding: 6px;
+            font-size: 11px;
+        }
+
+        .party-value.address {
+            height: 45px;
+            vertical-align: top;
+        }
+
+        /* 작성일자 섹션 */
+        .date-section {
+            margin-bottom: 15px;
+        }
+
+        .date-table {
+            width: 100%;
+            border-collapse: collapse;
+            border-top: 1px solid #999;
+            border-left: 1px solid #999;
+        }
+
+        .date-table td {
+            border-right: 1px solid #999;
+            border-bottom: 1px solid #999;
+            padding: 4px;
+            font-size: 10px;
+        }
+
+        .date-label {
+            font-weight: bold;
+            background: #f5f5f5;
+            text-align: center;
+        }
+
+        .date-value {
+            background: white;
+        }
+
+        /* 품목 섹션 */
+        .section-title {
+            font-weight: bold;
+            font-size: 11px;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        .items-table {
+            width: 100%;
+            border-collapse: collapse;
+            border-top: 1px solid #999;
+            border-left: 1px solid #999;
+            margin-bottom: 20px;
+        }
+
+        .items-table th {
+            background: #e8e8e8;
+            border-right: 1px solid #999;
+            border-bottom: 1px solid #999;
+            padding: 4px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 9px;
+            height: 25px;
+        }
+
+        .items-table td {
+            border-right: 1px solid #999;
+            border-bottom: 1px solid #999;
+            padding: 3px;
+            font-size: 10px;
+            text-align: right;
+            height: 20px;
+        }
+
+        .items-table td.left {
+            text-align: left;
+        }
+
+        .items-table td.center {
+            text-align: center;
+        }
+
+        .items-table tbody tr:nth-child(n+2) td {
+            background: #f9f9f9;
+        }
+
+        /* 합계금액 섹션 */
+        .summary-section {
+            margin-top: 30px;
+        }
+
+        .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            border-top: 1px solid #999;
+            border-left: 1px solid #999;
+        }
+
+        .summary-table td {
+            border-right: 1px solid #999;
+            border-bottom: 1px solid #999;
+            padding: 4px;
+            font-size: 10px;
+            background: #f9f9f9;
+        }
+
+        .summary-label {
+            background: #f0f0f0;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .summary-value {
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .footer-text {
+            text-align: right;
+            font-size: 10px;
+            margin-top: 5px;
+        }
+
+        @media print {
+
+            .upload-area,
+            .print-btn {
+                display: none;
+            }
+
+            .invoice-paper {
+                box-shadow: none;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="margin-bottom: 30px; text-align: center;">전자세금계산서 랜딩-1V2</h1>
+
+        <div class="search-section">
+            <h3>📋 세금계산서 번호로 검색</h3>
+            <div class="search-input-group">
+                <input type="text" id="searchInput" placeholder="예: 202501141025012023007622" maxlength="24">
+                <button class="search-btn" id="searchBtn">검색</button>
+            </div>
+        </div>
+
+        <div class="upload-area" id="uploadArea">
+            <div class="upload-icon">📄</div>
+            <div class="upload-text">XML 파일을 여기에 드래그&드롭하세요</div>
+            <div class="upload-hint">또는 클릭해서 파일 선택</div>
+            <input type="file" id="fileInput" accept=".xml" />
+        </div>
+
+        <div id="messageArea"></div>
+
+        <div id="invoiceArea" style="display: none;">
+            <div class="upload-area" id="uploadArea2" style="margin-bottom: 20px; padding: 20px;">
+                <div style="font-size: 12px; color: #666;">📄 새 파일을 드래그&드롭하거나 클릭하여 다른 세금계산서 열기</div>
+                <input type="file" id="fileInput2" accept=".xml" style="display: none;" />
+            </div>
+            <button class="print-btn" onclick="window.print()">🖨️ 인쇄</button>
+            <button class="print-btn" style="background: #FF6B6B; margin-left: 10px;" onclick="resetForm()">🔄
+                초기화</button>
+            <div class="invoice-paper" id="invoicePaper"></div>
+            <button class="print-btn" onclick="window.print()">🖨️ 인쇄</button>
+        </div>
+    </div>
+
+    <script>
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const invoiceArea = document.getElementById('invoiceArea');
+        const invoicePaper = document.getElementById('invoicePaper');
+        const messageArea = document.getElementById('messageArea');
+
+        const uploadArea2 = document.getElementById('uploadArea2');
+        const fileInput2 = document.getElementById('fileInput2');
+
+        uploadArea.addEventListener('click', () => fileInput.click());
+        uploadArea2.addEventListener('click', () => fileInput2.click());
+
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            handleFile(e.dataTransfer.files[0]);
+        });
+
+        uploadArea2.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea2.classList.add('dragover');
+        });
+
+        uploadArea2.addEventListener('dragleave', () => {
+            uploadArea2.classList.remove('dragover');
+        });
+
+        uploadArea2.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea2.classList.remove('dragover');
+            handleFile(e.dataTransfer.files[0]);
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files[0]) {
+                handleFile(e.target.files[0]);
+            }
+        });
+
+        fileInput2.addEventListener('change', (e) => {
+            if (e.target.files[0]) {
+                handleFile(e.target.files[0]);
+            }
+        });
+
+        // 검색 기능
+        const searchInput = document.getElementById('searchInput');
+        const searchBtn = document.getElementById('searchBtn');
+
+        searchBtn.addEventListener('click', searchByNumber);
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                searchByNumber();
+            }
+        });
+
+        async function searchByNumber() {
+            const invoiceNumber = searchInput.value.trim();
+
+            if (!invoiceNumber) {
+                showMessage('세금계산서 번호를 입력해주세요.', 'error');
+                return;
+            }
+
+            if (invoiceNumber.length !== 24) {
+                showMessage('세금계산서 번호는 24자리여야 합니다.', 'error');
+                return;
+            }
+
+            try {
+                showMessage('검색 중...', 'success');
+
+                // XML 폴더에서 파일 찾기 시도
+                const xmlFileName = invoiceNumber + '.xml';
+
+                // 로컬 파일 시스템에서 찾기 시도
+                try {
+                    const response = await fetch('./XML/' + xmlFileName);
+
+                    if (response.ok) {
+                        const xmlText = await response.text();
+                        const parser = new DOMParser();
+                        const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+
+                        if (xmlDoc.getElementsByTagName('parsererror').length > 0) {
+                            throw new Error('XML 파일 형식이 잘못되었습니다.');
+                        }
+
+                        renderInvoice(xmlDoc);
+                        uploadArea.style.display = 'none';
+                        invoiceArea.style.display = 'block';
+                        showMessage('세금계산서가 로드되었습니다. (' + xmlFileName + ')', 'success');
+                    } else {
+                        showMessage('해당 파일을 찾을 수 없습니다: ' + xmlFileName, 'error');
+                    }
+                } catch (fetchError) {
+                    // IndexedDB 방식 시도 (또는 다른 로컬 저장소)
+                    showMessage('파일을 로드할 수 없습니다. 파일을 직접 드래그해주세요.', 'error');
+                }
+            } catch (error) {
+                showMessage('오류: ' + error.message, 'error');
+            }
+        }
+
+        function handleFile(file) {
+            if (!file.name.endsWith('.xml')) {
+                showMessage('XML 파일만 업로드 가능합니다.', 'error');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    const xmlText = e.target.result;
+                    console.log('파일명:', file.name);
+                    console.log('파일 크기:', xmlText.length, 'bytes');
+
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+
+                    if (xmlDoc.getElementsByTagName('parsererror').length > 0) {
+                        console.error('XML 파싱 에러:', xmlDoc.getElementsByTagName('parsererror')[0].textContent);
+                        throw new Error('XML 파일 형식이 잘못되었습니다.');
+                    }
+
+                    console.log('XML 문서 파싱 성공');
+
+                    renderInvoice(xmlDoc);
+                    uploadArea.style.display = 'none';
+                    invoiceArea.style.display = 'block';
+                    showMessage('세금계산서가 로드되었습니다.', 'success');
+                } catch (error) {
+                    console.error('오류 발생:', error);
+                    showMessage('오류: ' + error.message, 'error');
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function showMessage(msg, type) {
+            messageArea.innerHTML = `<div class="message ${type}">${msg}</div>`;
+            if (type === 'success') {
+                setTimeout(() => {
+                    messageArea.innerHTML = '';
+                }, 3000);
+            }
+        }
+
+        function resetForm() {
+            uploadArea.style.display = 'block';
+            invoiceArea.style.display = 'none';
+            invoicePaper.innerHTML = '';
+            fileInput.value = '';
+            messageArea.innerHTML = '';
+        }
+
+        function getElementText(parent, tagName) {
+            if (!parent) return '';
+            const allChildren = parent.childNodes;
+            for (let child of allChildren) {
+                if (child.nodeType === 1) {
+                    const localName = child.localName || child.nodeName.split(':').pop();
+                    if (localName === tagName) {
+                        return child.textContent.trim();
+                    }
+                }
+            }
+            return '';
+        }
+
+        function findChild(parent, tagName) {
+            if (!parent) return null;
+            const allChildren = parent.childNodes;
+            for (let child of allChildren) {
+                if (child.nodeType === 1) {
+                    const localName = child.localName || child.nodeName.split(':').pop();
+                    if (localName === tagName) {
+                        return child;
+                    }
+                }
+            }
+            return null;
+        }
+
+        function findAllChildren(parent, tagName) {
+            if (!parent) return [];
+            const result = [];
+            const allChildren = parent.childNodes;
+            for (let child of allChildren) {
+                if (child.nodeType === 1) {
+                    const localName = child.localName || child.nodeName.split(':').pop();
+                    if (localName === tagName) {
+                        result.push(child);
+                    }
+                }
+            }
+            return result;
+        }
+
+        function formatNumber(num) {
+            return parseInt(num || 0).toLocaleString('ko-KR');
+        }
+
+        function formatBRN(brn) {
+            // XXX-XX-XXXXX 형식으로 포맷팅
+            if (!brn) return '';
+            brn = brn.replace(/[^0-9]/g, '');
+            if (brn.length === 10) {
+                return brn.substring(0, 3) + '-' + brn.substring(3, 5) + '-' + brn.substring(5);
+            }
+            return brn;
+        }
+
+        function formatApprovalNumber(issueId) {
+            // YYYYMMDD-YYYYMMDD-XXXXXXXX 형식으로 포맷팅
+            if (!issueId) return '';
+            issueId = issueId.replace(/[^0-9]/g, '');
+            if (issueId.length === 24) {
+                // 202512021025120257362283 -> 20251202-10251202-57362283
+                return issueId.substring(0, 8) + '-' + issueId.substring(8, 16) + '-' + issueId.substring(16);
+            }
+            return issueId;
+        }
+
+        function getAmendmentReason(code) {
+            const reasons = {
+                '01': '기재사항착오정정',
+                '04': '계약의해제'
+            };
+            return reasons[code] || '';
+        }
+
+        function formatDateDisplay(dateStr) {
+            if (!dateStr || dateStr.length < 8) return dateStr;
+            return `${dateStr.substring(0, 4)}-${dateStr.substring(4, 6)}-${dateStr.substring(6, 8)}`;
+        }
+
+        function renderInvoice(xmlDoc) {
+            try {
+                const root = xmlDoc.documentElement;
+                console.log('=== XML 파싱 시작 ===');
+                console.log('Root element:', root.nodeName);
+
+                // 기본 정보
+                const taxInvoiceDoc = findChild(root, 'TaxInvoiceDocument');
+                console.log('0. TaxInvoiceDocument 찾기:', taxInvoiceDoc ? '성공' : '실패');
+
+                const issueId = getElementText(taxInvoiceDoc, 'IssueID');
+                console.log('1. IssueID 파싱:');
+                console.log('   - 원본 IssueID:', issueId);
+                console.log('   - 포맷팅된 IssueID:', formatApprovalNumber(issueId));
+
+                const issueDateEl = findChild(taxInvoiceDoc, 'IssueDateTime');
+                const issueDate = issueDateEl ? issueDateEl.textContent : '';
+                console.log('2. IssueDateTime 파싱:', issueDate);
+
+                // 수정 여부 확인
+                const typeCode = getElementText(taxInvoiceDoc, 'TypeCode');
+                const descriptionText = getElementText(taxInvoiceDoc, 'DescriptionText');
+                const amendmentCode = getElementText(taxInvoiceDoc, 'AmendmentStatusCode');
+                console.log('3. 수정 정보:');
+                console.log('   - TypeCode:', typeCode);
+                console.log('   - AmendmentStatusCode:', amendmentCode);
+                console.log('   - DescriptionText:', descriptionText);
+                console.log('   - 수정사유:', getAmendmentReason(amendmentCode));
+
+                // InvoicerParty 정보
+                const settlement = findChild(root, 'TaxInvoiceTradeSettlement');
+                console.log('4. TaxInvoiceTradeSettlement 찾기:', settlement ? '성공' : '실패');
+
+                const invoicerParty = findChild(settlement, 'InvoicerParty');
+                console.log('5. InvoicerParty 찾기:', invoicerParty ? '성공' : '실패');
+
+                const invoicerBrn = getElementText(invoicerParty, 'ID');
+                const invoicerName = getElementText(invoicerParty, 'NameText');
+                const invoicerPersonName = getElementText(findChild(invoicerParty, 'SpecifiedPerson'), 'NameText');
+                const invoicerTypeCode = getElementText(invoicerParty, 'TypeCode');
+                const invoicerClassCode = getElementText(invoicerParty, 'ClassificationCode');
+                const invoicerEmail = getElementText(findChild(invoicerParty, 'DefinedContact'), 'URICommunication');
+                const invoicerAddress = getElementText(findChild(invoicerParty, 'SpecifiedAddress'), 'LineOneText');
+
+                console.log('   - 공급자 BRN:', invoicerBrn);
+                console.log('   - 공급자 상호:', invoicerName);
+
+                // InvoiceeParty 정보
+                const invoiceeParty = findChild(settlement, 'InvoiceeParty');
+                const invoiceeBrn = getElementText(invoiceeParty, 'ID');
+                const invoiceeName = getElementText(invoiceeParty, 'NameText');
+                const invoiceePersonName = getElementText(findChild(invoiceeParty, 'SpecifiedPerson'), 'NameText');
+                const invoiceeTypeCode = getElementText(invoiceeParty, 'TypeCode');
+                const invoiceeClassCode = getElementText(invoiceeParty, 'ClassificationCode');
+                const invoiceeEmail = getElementText(findChild(invoiceeParty, 'PrimaryDefinedContact'), 'URICommunication');
+                const invoiceeAddress = getElementText(findChild(invoiceeParty, 'SpecifiedAddress'), 'LineOneText');
+
+                // 항목 정보
+                const items = findAllChildren(root, 'TaxInvoiceTradeLineItem');
+                const itemData = [];
+
+                items.forEach(item => {
+                    const name = getElementText(item, 'NameText');
+                    const quantity = getElementText(item, 'ChargeableUnitQuantity');
+                    const unitPriceEl = findChild(item, 'UnitPrice');
+                    const unitPrice = getElementText(unitPriceEl, 'UnitAmount');
+                    const amount = getElementText(item, 'InvoiceAmount');
+                    const totalTaxEl = findChild(item, 'TotalTax');
+                    const tax = getElementText(totalTaxEl, 'CalculatedAmount');
+
+                    if (name && quantity && amount) {
+                        itemData.push({
+                            name: name,
+                            quantity: quantity,
+                            unitPrice: unitPrice || amount,
+                            amount: amount,
+                            tax: tax
+                        });
+                    }
+                });
+
+                // 금액 정보
+                const monetarySummation = findChild(settlement, 'SpecifiedMonetarySummation');
+                console.log('6. SpecifiedMonetarySummation 찾기:', monetarySummation ? '성공' : '실패');
+
+                const subtotal = getElementText(monetarySummation, 'ChargeTotalAmount');
+                const taxAmount = getElementText(monetarySummation, 'TaxTotalAmount');
+                const totalAmount = getElementText(monetarySummation, 'GrandTotalAmount');
+
+                console.log('7. 금액 정보:');
+                console.log('   - 공급가액:', subtotal);
+                console.log('   - 세액:', taxAmount);
+                console.log('   - 합계:', totalAmount);
+                console.log('=== XML 파싱 완료 ===');
+
+                const [year, month, day] = [issueDate.substring(0, 4), issueDate.substring(4, 6), issueDate.substring(6, 8)];
+
+                let html = `
+                    <div class="title">전자세금계산서_일반</div>
+
+                    <div class="approval-info">
+                        승인번호 <strong>${formatApprovalNumber(issueId)}</strong>
+                    </div>
+
+                    <table class="unified-party-table">
+                        <tr>
+                            <td rowspan="5" class="party-indicator pink">공<br/>급<br/>자</td>
+                            <td class="party-label">등록번호</td>
+                            <td class="party-value" style="width: 15%;">${formatBRN(invoicerBrn)}</td>
+                            <td class="party-label">종사업장 번호</td>
+                            <td class="party-value" style="width: 15%;"></td>
+                            <td rowspan="5" class="party-indicator blue">공<br/>급<br/>받<br/>는<br/>자</td>
+                            <td class="party-label blue">등록번호</td>
+                            <td class="party-value" style="width: 15%;">${formatBRN(invoiceeBrn)}</td>
+                            <td class="party-label blue">종사업장 번호</td>
+                            <td class="party-value" style="width: 15%;"></td>
+                        </tr>
+                        <tr>
+                            <td class="party-label">상호</td>
+                            <td class="party-value">${invoicerName}</td>
+                            <td class="party-label">성명</td>
+                            <td class="party-value">${invoicerPersonName}</td>
+                            <td class="party-label blue">상호</td>
+                            <td class="party-value">${invoiceeName}</td>
+                            <td class="party-label blue">성명</td>
+                            <td class="party-value">${invoiceePersonName}</td>
+                        </tr>
+                        <tr>
+                            <td class="party-label">사업장<br/>주소</td>
+                            <td colspan="3" class="party-value address">${invoicerAddress}</td>
+                            <td class="party-label blue">사업장<br/>주소</td>
+                            <td colspan="3" class="party-value address">${invoiceeAddress}</td>
+                        </tr>
+                        <tr>
+                            <td class="party-label">업태</td>
+                            <td class="party-value">${invoicerTypeCode}</td>
+                            <td class="party-label">종목</td>
+                            <td class="party-value">${invoicerClassCode}</td>
+                            <td class="party-label blue">업태</td>
+                            <td class="party-value">${invoiceeTypeCode}</td>
+                            <td class="party-label blue">종목</td>
+                            <td class="party-value">${invoiceeClassCode}</td>
+                        </tr>
+                        <tr>
+                            <td class="party-label">이메일</td>
+                            <td colspan="3" class="party-value">${invoicerEmail}</td>
+                            <td class="party-label blue">이메일</td>
+                            <td colspan="3" class="party-value">${invoiceeEmail}</td>
+                        </tr>
+                    </table>
+
+                    <div class="date-section">
+                        <table class="date-table">
+                            <tr>
+                                <td class="date-label">작성일자</td>
+                                <td class="date-value">${formatDateDisplay(issueDate)}</td>
+                                <td class="date-label">공급가액</td>
+                                <td class="date-value" style="text-align: right;">${formatNumber(subtotal)}</td>
+                            </tr>
+                            <tr>
+                                <td class="date-label">세액</td>
+                                <td class="date-value" style="text-align: right;">${formatNumber(taxAmount)}</td>
+                                <td class="date-label">수정사유</td>
+                                <td class="date-value">${getAmendmentReason(amendmentCode)}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="date-label" style="text-align: center;">비고</td>
+                                <td colspan="2" class="date-value" style="height: 60px; vertical-align: top;">${descriptionText}</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="section-title">품목</div>
+                    <table class="items-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 3%;">월</th>
+                                <th style="width: 3%;">일</th>
+                                <th style="width: 35%;">품목</th>
+                                <th style="width: 7%;">규격</th>
+                                <th style="width: 6%;">수량</th>
+                                <th style="width: 12%;">단가</th>
+                                <th style="width: 12%;">공급가액</th>
+                                <th style="width: 12%;">세액</th>
+                                <th style="width: 10%;">비고</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+
+                itemData.forEach(item => {
+                    html += `
+                        <tr>
+                            <td class="center">${month}</td>
+                            <td class="center">${day}</td>
+                            <td class="left">${item.name}</td>
+                            <td class="center">-</td>
+                            <td class="center">${item.quantity}</td>
+                            <td>${formatNumber(item.unitPrice)}</td>
+                            <td>${formatNumber(item.amount)}</td>
+                            <td>${formatNumber(item.tax)}</td>
+                            <td></td>
+                        </tr>
+                    `;
+                });
+
+                // 빈 행 추가
+                html += `
+                        <tr>
+                            <td colspan="9"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="summary-section">
+                        <div class="section-title">합계금액</div>
+                        <table class="summary-table">
+                            <tr>
+                                <td class="summary-label" style="width: 15%;">합계금액</td>
+                                <td style="width: 20%; text-align: right; font-weight: bold;">${formatNumber(totalAmount)}</td>
+                                <td class="summary-label" style="width: 12%;">현금</td>
+                                <td style="width: 18%; text-align: right; font-weight: bold;">${formatNumber(totalAmount)}</td>
+                                <td class="summary-label" style="width: 12%;">수표</td>
+                                <td style="width: 13%;"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="background: white;"></td>
+                                <td class="summary-label">어음</td>
+                                <td style="width: 18%;"></td>
+                                <td class="summary-label">외상미수금</td>
+                                <td style="width: 13%;"></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="footer-text">이 금액을 (청구 ) 합</div>
+                `;
+
+                invoicePaper.innerHTML = html;
+            } catch (error) {
+                showMessage('렌더링 오류: ' + error.message, 'error');
+                console.error(error);
+            }
+        }
+    </script>
+</body>
+
+</html>
